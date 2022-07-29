@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@font-face {
+    font-family: 'Pixelboy';
+    src: url(Font/Pixeboy.ttf);
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+#container{
+    font-family: 'Pixelboy';
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+#top-bar-container{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: 1024px;
+    align-items: center;
+}
+#player-health-container{
+    background-color: #2c2c2c;
+    height: 14px;
+    width: 46%;
+    margin-left: 1%;
+    border-radius: 15px;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+#timer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    border-radius: 50%;
+    background-color: orange;
+    border: 2px solid #2c2c2c;
+    height: 80px;
+    width: 80px;
+    margin: 1%;
+}
+#enemy-health-container{
+    background-color: #2c2c2c;
+    height: 14px;
+    width: 46%;
+    margin-right: 1%;
+    border-radius: 15px;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    transform: rotate(180deg);
+}
+#player-health{
+    background-color: red;
+    height: 14px;
+    width: 100%;
+    border-radius: 15px;
+    transition: .1s ease;
+}
+#enemy-health{
+    background-color: red;
+    height: 14px;
+    width: 100%;
+    border-radius: 15px;
+    transition: .1s ease;
+
+}
+#tie-container{
+    width: 1024px;
+    height: 576px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+#tie{
+    font-size: 40px;
+    display: none;
+    color: white;
+    background-color: #2c2c2c;
+    padding: 5px;
+    border-radius: 10px
+}
