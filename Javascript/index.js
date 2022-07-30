@@ -246,8 +246,9 @@ function animate() {
   }
 }
 function Play() {
-  animate();
   document.querySelector("#play-container").style.display = "none";
+  document.querySelector('body').style.overflow = 'hidden'
+  animate();
   decreaseTimer();
 }
 
