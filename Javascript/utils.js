@@ -14,14 +14,14 @@ function determineWinner({ player, enemy, timerId }) {
   clearTimeout(timerId)
   document.querySelector('#tie').style.display = 'flex'
   if (player.health === enemy.health) {
-    document.querySelector('#tie').innerHTML = 'Over Time!'
+    document.querySelector('#tie').innerHTML = 'Tempo Esgotado!'
     enemy.switchSprite('death')
     player.switchSprite('death')
   } else if (player.health > enemy.health) {
-    document.querySelector('#tie').innerHTML = 'Player 1 Wins'
+    document.querySelector('#tie').innerHTML = 'Jogador 1 Ganhou!'
     enemy.switchSprite('death')
   } else if (player.health < enemy.health) {
-    document.querySelector('#tie').innerHTML = 'Player 2 Wins'
+    document.querySelector('#tie').innerHTML = 'Jogador 2 Ganhou!'
     player.switchSprite('death')
   }
   setTimeout(()=>{
@@ -29,7 +29,7 @@ function determineWinner({ player, enemy, timerId }) {
   },5000)
 }
 
-let timer = 65
+let timer = 60
 let timerId
 function decreaseTimer() {
   if (timer > 0) {

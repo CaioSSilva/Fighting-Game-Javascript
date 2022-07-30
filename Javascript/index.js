@@ -1,315 +1,314 @@
-const canvas = document.querySelector('canvas')
-const c = canvas.getContext('2d')
+const canvas = document.querySelector("canvas");
+const c = canvas.getContext("2d");
 
-canvas.width = 1024
-canvas.height = 576
+canvas.width = 1024;
+canvas.height = 576;
 
-c.fillRect(0, 0, canvas.width, canvas.height)
+c.fillRect(0, 0, canvas.width, canvas.height);
 
-const gravity = 0.7
+const gravity = 0.7;
 
 const background = new Sprite({
   position: {
     x: 0,
-    y: 0
+    y: 0,
   },
-  imageSrc: '../Image/Background.png'
-})
+  imageSrc: "../Image/Background.png",
+});
 const player = new Fighter({
   position: {
     x: 300,
-    y: 0
+    y: 0,
   },
   velocity: {
     x: 0,
-    y: 0
+    y: 0,
   },
   offset: {
     x: 0,
-    y: 0
+    y: 0,
   },
-  imageSrc: '../Image/samuraiMack/Idle.png',
+  imageSrc: "../Image/samuraiMack/Idle.png",
   framesMax: 8,
   scale: 2.5,
   offset: {
     x: 215,
-    y: 157
+    y: 157,
   },
   sprites: {
     idle: {
-      imageSrc: '../Image/samuraiMack/Idle.png',
-      framesMax: 8
+      imageSrc: "../Image/samuraiMack/Idle.png",
+      framesMax: 8,
     },
     run: {
-      imageSrc: '../Image/samuraiMack/Run.png',
-      framesMax: 8
+      imageSrc: "../Image/samuraiMack/Run.png",
+      framesMax: 8,
     },
     jump: {
-      imageSrc: '../Image/samuraiMack/Jump.png',
-      framesMax: 2
+      imageSrc: "../Image/samuraiMack/Jump.png",
+      framesMax: 2,
     },
     fall: {
-      imageSrc: '../Image/samuraiMack/Fall.png',
-      framesMax: 2
+      imageSrc: "../Image/samuraiMack/Fall.png",
+      framesMax: 2,
     },
     attack1: {
-      imageSrc: '../Image/samuraiMack/Attack1.png',
-      framesMax: 6
+      imageSrc: "../Image/samuraiMack/Attack1.png",
+      framesMax: 6,
     },
     takeHit: {
-      imageSrc: '../Image/samuraiMack/Take Hit - white silhouette.png',
-      framesMax: 4
+      imageSrc: "../Image/samuraiMack/Take Hit - white silhouette.png",
+      framesMax: 4,
     },
     death: {
-      imageSrc: '../Image/samuraiMack/Death.png',
-      framesMax: 6
-    }
+      imageSrc: "../Image/samuraiMack/Death.png",
+      framesMax: 6,
+    },
   },
   attackBox: {
     offset: {
       x: 70,
-      y: 50
+      y: 50,
     },
     width: 160,
-    height: 50
-  }
-})
+    height: 50,
+  },
+});
 
 const enemy = new Fighter({
   position: {
     x: 700,
-    y: 100
+    y: 100,
   },
   velocity: {
     x: 0,
-    y: 0
+    y: 0,
   },
   offset: {
     x: -50,
-    y: 0
+    y: 0,
   },
-  imageSrc: '../Image/kenji/Idle.png',
+  imageSrc: "../Image/kenji/Idle.png",
   framesMax: 4,
   scale: 2.5,
   offset: {
     x: 215,
-    y: 167
+    y: 167,
   },
   sprites: {
     idle: {
-      imageSrc: '../Image/kenji/Idle.png',
-      framesMax: 4
+      imageSrc: "../Image/kenji/Idle.png",
+      framesMax: 4,
     },
     run: {
-      imageSrc: '../Image/kenji/Run.png',
-      framesMax: 8
+      imageSrc: "../Image/kenji/Run.png",
+      framesMax: 8,
     },
     jump: {
-      imageSrc: '../Image/kenji/Jump.png',
-      framesMax: 2
+      imageSrc: "../Image/kenji/Jump.png",
+      framesMax: 2,
     },
     fall: {
-      imageSrc: '../Image/kenji/Fall.png',
-      framesMax: 2
+      imageSrc: "../Image/kenji/Fall.png",
+      framesMax: 2,
     },
     attack1: {
-      imageSrc: '../Image/kenji/Attack1.png',
-      framesMax: 4
+      imageSrc: "../Image/kenji/Attack1.png",
+      framesMax: 4,
     },
     takeHit: {
-      imageSrc: '../Image/kenji/Take hit.png',
-      framesMax: 3
+      imageSrc: "../Image/kenji/Take hit.png",
+      framesMax: 3,
     },
     death: {
-      imageSrc: '../Image/kenji/Death.png',
-      framesMax: 7
-    }
+      imageSrc: "../Image/kenji/Death.png",
+      framesMax: 7,
+    },
   },
   attackBox: {
     offset: {
       x: -170,
-      y: 50
+      y: 50,
     },
     width: 170,
-    height: 50
-  }
-})
+    height: 50,
+  },
+});
 
 const keys = {
   a: {
-    pressed: false
+    pressed: false,
   },
   d: {
-    pressed: false
+    pressed: false,
   },
   ArrowRight: {
-    pressed: false
+    pressed: false,
   },
   ArrowLeft: {
-    pressed: false
-  }
-}
-
-decreaseTimer()
+    pressed: false,
+  },
+};
 
 function animate() {
-  window.requestAnimationFrame(animate)
-  c.fillStyle = 'black'
-  c.fillRect(0, 0, canvas.width, canvas.height)
-  background.update()
-  c.fillStyle = 'rgba(255, 255, 255, 0.15)'
-  c.fillRect(0, 0, canvas.width, canvas.height)
-  player.update()
-  enemy.update()
+  window.requestAnimationFrame(animate);
+  c.fillStyle = "black";
+  c.fillRect(0, 0, canvas.width, canvas.height);
+  background.update();
+  c.fillStyle = "rgba(255, 255, 255, 0.15)";
+  c.fillRect(0, 0, canvas.width, canvas.height);
+  player.update();
+  enemy.update();
 
-  player.velocity.x = 0
-  enemy.velocity.x = 0
+  player.velocity.x = 0;
+  enemy.velocity.x = 0;
 
   // player movement
 
-  if (keys.a.pressed && player.lastKey === 'a') {
-    player.velocity.x = -5
-    player.switchSprite('run')
-  } else if (keys.d.pressed && player.lastKey === 'd') {
-    player.velocity.x = 5
-    player.switchSprite('run')
+  if (keys.a.pressed && player.lastKey === "a") {
+    player.velocity.x = -5;
+    player.switchSprite("run");
+  } else if (keys.d.pressed && player.lastKey === "d") {
+    player.velocity.x = 5;
+    player.switchSprite("run");
   } else {
-    player.switchSprite('idle')
+    player.switchSprite("idle");
   }
 
   // jumping
   if (player.velocity.y < 0) {
-    player.switchSprite('jump')
+    player.switchSprite("jump");
   } else if (player.velocity.y > 0) {
-    player.switchSprite('fall')
+    player.switchSprite("fall");
   }
 
   // Enemy movement
-  if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
-    enemy.velocity.x = -5
-    enemy.switchSprite('run')
-  } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
-    enemy.velocity.x = 5
-    enemy.switchSprite('run')
+  if (keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
+    enemy.velocity.x = -5;
+    enemy.switchSprite("run");
+  } else if (keys.ArrowRight.pressed && enemy.lastKey === "ArrowRight") {
+    enemy.velocity.x = 5;
+    enemy.switchSprite("run");
   } else {
-    enemy.switchSprite('idle')
+    enemy.switchSprite("idle");
   }
 
   // jumping
   if (enemy.velocity.y < 0) {
-    enemy.switchSprite('jump')
+    enemy.switchSprite("jump");
   } else if (enemy.velocity.y > 0) {
-    enemy.switchSprite('fall')
+    enemy.switchSprite("fall");
   }
 
   // detect for collision & enemy gets hit
   if (
     rectangularCollision({
       rectangle1: player,
-      rectangle2: enemy
+      rectangle2: enemy,
     }) &&
     player.isAttacking &&
     player.framesCurrent === 4
   ) {
-    enemy.takeHit()
-    player.isAttacking = false
+    enemy.takeHit();
+    player.isAttacking = false;
 
-    document.getElementById('enemy-health').style.width = enemy.health + "%"
+    document.getElementById("enemy-health").style.width = enemy.health + "%";
   }
 
   // if player misses
   if (player.isAttacking && player.framesCurrent === 4) {
-    player.isAttacking = false
+    player.isAttacking = false;
   }
 
   // this is where our player gets hit
   if (
     rectangularCollision({
       rectangle1: enemy,
-      rectangle2: player
+      rectangle2: player,
     }) &&
     enemy.isAttacking &&
     enemy.framesCurrent === 2
   ) {
-    player.takeHit()
-    enemy.isAttacking = false
+    player.takeHit();
+    enemy.isAttacking = false;
 
-    document.getElementById('player-health').style.width = player.health + "%"
+    document.getElementById("player-health").style.width = player.health + "%";
   }
 
   // if player misses
   if (enemy.isAttacking && enemy.framesCurrent === 2) {
-    enemy.isAttacking = false
+    enemy.isAttacking = false;
   }
 
   // end game based on health
   if (enemy.health <= 0 || player.health <= 0) {
-    determineWinner({ player, enemy, timerId })
+    determineWinner({ player, enemy, timerId });
   }
 }
-function Play(){
-  animate()
-  document.querySelector('#play-container').style.display = 'none'
+function Play() {
+  animate();
+  document.querySelector("#play-container").style.display = "none";
+  decreaseTimer();
 }
 
-window.addEventListener('keydown', (event) => {
+window.addEventListener("keydown", (event) => {
   if (!player.dead) {
     switch (event.key) {
-      case 'd':
-        keys.d.pressed = true
-        player.lastKey = 'd'
-        break
-      case 'a':
-        keys.a.pressed = true
-        player.lastKey = 'a'
-        break
-      case 'w':
-        player.velocity.y = -20
-        break
-      case ' ':
-        player.attack()
-        break
+      case "d":
+        keys.d.pressed = true;
+        player.lastKey = "d";
+        break;
+      case "a":
+        keys.a.pressed = true;
+        player.lastKey = "a";
+        break;
+      case "w":
+        player.velocity.y = -20;
+        break;
+      case "f":
+        player.attack();
+        break;
     }
   }
 
   if (!enemy.dead) {
     switch (event.key) {
-      case 'ArrowRight':
-        keys.ArrowRight.pressed = true
-        enemy.lastKey = 'ArrowRight'
-        break
-      case 'ArrowLeft':
-        keys.ArrowLeft.pressed = true
-        enemy.lastKey = 'ArrowLeft'
-        break
-      case 'ArrowUp':
-        enemy.velocity.y = -20
-        break
-      case 'ArrowDown':
-        enemy.attack()
+      case "ArrowRight":
+        keys.ArrowRight.pressed = true;
+        enemy.lastKey = "ArrowRight";
+        break;
+      case "ArrowLeft":
+        keys.ArrowLeft.pressed = true;
+        enemy.lastKey = "ArrowLeft";
+        break;
+      case "ArrowUp":
+        enemy.velocity.y = -20;
+        break;
+      case "Enter":
+        enemy.attack();
 
-        break
+        break;
     }
   }
-})
+});
 
-window.addEventListener('keyup', (event) => {
+window.addEventListener("keyup", (event) => {
   switch (event.key) {
-    case 'd':
-      keys.d.pressed = false
-      break
-    case 'a':
-      keys.a.pressed = false
-      break
+    case "d":
+      keys.d.pressed = false;
+      break;
+    case "a":
+      keys.a.pressed = false;
+      break;
   }
 
   // enemy keys
   switch (event.key) {
-    case 'ArrowRight':
-      keys.ArrowRight.pressed = false
-      break
-    case 'ArrowLeft':
-      keys.ArrowLeft.pressed = false
-      break
+    case "ArrowRight":
+      keys.ArrowRight.pressed = false;
+      break;
+    case "ArrowLeft":
+      keys.ArrowLeft.pressed = false;
+      break;
   }
-})
+});
