@@ -67,7 +67,7 @@ const player = new Fighter({
   },
   attackBox: {
     offset: {
-      x: 100,
+      x: 70,
       y: 50
     },
     width: 160,
@@ -247,8 +247,10 @@ function animate() {
     determineWinner({ player, enemy, timerId })
   }
 }
-
-animate()
+function Play(){
+  animate()
+  document.querySelector('#play-container').style.display = 'none'
+}
 
 window.addEventListener('keydown', (event) => {
   if (!player.dead) {

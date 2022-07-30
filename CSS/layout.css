@@ -1,0 +1,92 @@
+header{
+    background-color: #ff4f55;
+    height: 60px;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 60px;
+}
+.logo{
+    height: 50px;
+}
+.menu a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+}
+.menu a:hover{
+    border-radius: 5px;
+    color: #ff4f55;
+    background-color: #fff;
+}
+.logo-content{
+    display: flex;
+    height: 60px;
+    align-items: center;
+    gap: 15px;
+    color: #fff;
+}
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    height: 60px;
+    width: max-content;
+}
+.search input{
+    border: none;
+    width: 200px;
+    height: 25px;
+    outline: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    color: #cf1b21;
+    border: 5px solid #ff4f55;
+}
+.search input:focus{
+    border: 5px #cf1b21 solid;
+}
+.search button{
+    height: 30px;
+    width: 80px;
+    color: #cf1b21;
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+}
+.search button:hover{
+    background-color: #cf1b21;
+    cursor: pointer;
+    color: #fff;
+}
+.game-info-bar{
+    width: 1024px;
+    margin: 0 auto;
+}
+.game-info-bar > a{
+    color: #cf1b21;
+    font-size: 35px;
+    font-weight: 700;
+}
+.game-info-bar h1:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.types-container a {
+    background-color: #ff4f55;
+    padding: 5px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.types-container{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 35px;
+    width: 40%;
+}

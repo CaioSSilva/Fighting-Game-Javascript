@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 @font-face {
     font-family: 'Pixelboy';
-    src: url(Font/Pixeboy.ttf);
+    src: url('../Font/Pixeboy.ttf');
 }
 body{
     font-family: 'Poppins', sans-serif;
@@ -13,13 +13,14 @@ body{
     position: relative;
     display: flex;
     justify-content: center;
-    padding-top: 30px;
+    padding-top: 15px;
 }
 #top-bar-container{
     position: absolute;
-    display: flex;
+    display: none;
     justify-content: space-around;
     width: 1024px;
+    padding-top: 8px;
     align-items: center;
 }
 #player-health-container{
@@ -38,10 +39,9 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 35px;
-    border-radius: 50%;
     background-color: orange;
     border: 2px solid #2c2c2c;
-    height: 80px;
+    height: 40px;
     width: 80px;
     margin: 1%;
 }
@@ -74,6 +74,7 @@ body{
 #tie-container{
     width: 1024px;
     height: 576px;
+    padding-top: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,4 +87,29 @@ body{
     background-color: #2c2c2c;
     padding: 5px;
     border-radius: 10px
+}
+canvas{
+    border: 8px solid #cf1b21;
+    border-radius: 5px;
+}
+/*Play Button*/
+#play-container{
+    z-index: 2;
+    width: 1024px;
+    height: 576px;
+    padding-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+#play-container img{
+    display: flex;
+    background: transparent;
+    width: 90px;
+    filter: brightness(0) saturate(100%) invert(92%) sepia(82%) saturate(2982%) hue-rotate(187deg) brightness(128%) contrast(101%);
+    cursor: pointer;
+}
+#play-container img:hover{
+    transform: scale(1.1);
 }

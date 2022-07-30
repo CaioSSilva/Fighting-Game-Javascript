@@ -1,5 +1,42 @@
-<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/game.css">
+    <link rel="stylesheet" href="CSS/layout.css">
+    <title>Games - O tempo todo!</title>
+</head>
 <body>
+    <header>
+        <nav class="menu">
+            <div class="logo-content">
+                <img class="logo" src="Image/bg-img.png">
+                <h2>Games.com</h2>
+            </div>
+            <ul>
+                <a href="">Plataforma</a>
+                <a href="">Aventura</a>
+                <a href="">Retro</a>
+                <a href="">Clássicos</a>
+            </ul>
+            <div class="search">
+                <input maxlength="30" type="text">
+                <button>Pesquisar</button>
+            </div>
+        </nav>
+    </header>
+    <div class="game-info-bar">
+        <a href="#">Samurai Fighting Game</a>
+        <p>Embarque em uma luta mortal pela sobrevivencia</p>
+        <div class="types-container">
+            <a href="#">Dois Jogadores</a>
+            <a href="#">Luta</a>
+            <a href="#">Ação</a>
+        </div>
+    </div>
     <div id="container">
         <div id="top-bar-container">
             <!-- Player Health-->
@@ -9,6 +46,7 @@
             <!-- Enemy Health-->
             <div id="enemy-health-container"><div id="enemy-health"></div></div>
         </div>
+        <div id="play-container"><img onclick="Play()" src="https://cdn-icons-png.flaticon.com/512/27/27223.png"></div>
         <div id="tie-container"><div id="tie"></div></div>
         <canvas></canvas>
     </div>
@@ -17,3 +55,4 @@
     <script src="Javascript/classes.js"></script>
     <script src="Javascript/index.js"></script>
 </body>
+</html>

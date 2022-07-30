@@ -18,7 +18,7 @@ class Sprite {
     this.framesHold = 5
     this.offset = offset
   }
-
+  
   draw() {
     c.drawImage(
       this.image,
@@ -31,6 +31,7 @@ class Sprite {
       (this.image.width / this.framesMax) * this.scale,
       this.image.height * this.scale
     )
+    document.querySelector('#top-bar-container').style.display = 'flex'
   }
 
   animateFrames() {
@@ -123,7 +124,7 @@ class Fighter extends Sprite {
   }
 
   takeHit() {
-    this.health -= 20
+    this.health -= 10
 
     if (this.health <= 0) {
       this.switchSprite('death')

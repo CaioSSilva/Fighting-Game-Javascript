@@ -24,6 +24,9 @@ function determineWinner({ player, enemy, timerId }) {
     document.querySelector('#tie').innerHTML = 'Player 2 Wins'
     player.switchSprite('death')
   }
+  setTimeout(()=>{
+    window.location.reload()
+  },5000)
 }
 
 let timer = 65
