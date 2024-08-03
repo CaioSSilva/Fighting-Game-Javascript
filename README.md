@@ -1,1 +1,1 @@
-Live: https://javascript-fighting-game.netlify.app/
+Live: https://fighting-game-javascript-xi.vercel.app/
